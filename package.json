@@ -1,0 +1,25 @@
+{
+  "name": "wayfinder",
+  "version": "1.0.0",
+  "description": "Wayfinder",
+  "scripts": {
+    "deploy": "gh-pages -d .",
+    "predeploy": "echo 'Deploying to GitHub Pages...'",
+    "postdeploy": "echo 'Deployment complete! Visit https://chraltro.github.io/wayfinder'"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "homepage": "https://chraltro.github.io/wayfinder",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chraltro/wayfinder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chraltro/wayfinder/issues"
+  }
+}
