@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>ChrAltro GitHub Projects</title>
+    <meta name="description" content="Portfolio of ChrAltro's GitHub projects and web applications">
+    <meta property="og:title" content="ChrAltro GitHub Projects">
+    <meta property="og:description" content="Portfolio of ChrAltro's GitHub projects and web applications">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <style>
         * {
             margin: 0;
@@ -23,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated background particles */
         body::before {
             content: '';
             position: fixed;
@@ -49,36 +53,27 @@
             z-index: 1;
             width: 100%;
             max-width: 1400px;
+            margin: 0 auto;
         }
 
         h1 {
             text-align: center;
-            font-size: 3.5rem;
-            font-weight: 200;
-            letter-spacing: 0.15em;
-            margin-bottom: 4rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin: 0;
+            padding: 2rem 0;
             color: #fff;
-            text-transform: uppercase;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
             animation: fadeIn 1s ease-out;
         }
 
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #fff, transparent);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
 
         @keyframes fadeIn {
             0% {
@@ -93,9 +88,17 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            padding: 0 1rem;
+            gap: 2.5rem;
+            padding: 0;
+            max-width: 1200px;
+            margin: 8rem auto 0;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .image-link {
+            display: block;
+            text-decoration: none;
         }
 
         .project-card {
@@ -104,11 +107,6 @@
             animation: fadeInUp 0.8s ease-out backwards;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
 
         @keyframes fadeInUp {
             0% {
@@ -128,16 +126,17 @@
         .image-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 60%;
+            padding-bottom: 65%;
             overflow: hidden;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            background: #2a2a2a;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .project-card:hover .image-wrapper {
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);
+            transform: translateY(-5px);
         }
 
         .image-wrapper::before {
@@ -147,11 +146,31 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+            background: 
+                linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 50%, rgba(255,255,255,0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%);
             opacity: 0;
             transition: opacity 0.3s ease;
-            border-radius: 12px;
+            border-radius: 16px;
             z-index: 2;
+        }
+
+        .image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            border-radius: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover .image-wrapper::after {
+            opacity: 1;
         }
 
         .project-card:hover .image-wrapper::before {
@@ -165,12 +184,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px;
-            transition: transform 0.3s ease;
+            border-radius: 16px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: blur(2px);
+            transform: scale(1.05);
         }
 
         .project-card:hover .project-image {
-            transform: scale(1.05);
+            filter: blur(0px);
+            transform: scale(1);
         }
 
         .project-number {
@@ -253,81 +275,166 @@
             transform: scale(1.05);
         }
 
-        /* Placeholder gradient for projects without images */
-        .gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .gradient-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .gradient-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .gradient-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 1.5rem !important;
+                padding: 1rem 0 !important;
             }
             
             .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                margin-top: 6rem !important;
+            }
+
+            .project-card:nth-child(n) {
+                grid-column: unset !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Projects</h1>
+        <h1>ChrAltro GitHub Projects</h1>
         
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="image-wrapper gradient-1">
-                    <span class="project-number">01</span>
-                    <!-- Add your image here -->
-                    <!-- <img src="project1.jpg" alt="Project 1" class="project-image"> -->
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Chrisidian</h2>
-                    <p class="project-description">AI-Powered Markdown Notes</p>
-                    <a href="https://chraltro.github.io/chrisidian/" class="view-project" target="_blank">View Project</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="image-wrapper gradient-2">
-                    <span class="project-number">02</span>
-                    <!-- Add your image here -->
-                    <!-- <img src="project2.jpg" alt="Project 2" class="project-image"> -->
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project Beta</h2>
-                    <p class="project-description">Innovative solution for modern development workflows</p>
-                    <a href="https://github.com/yourusername/project2" class="view-project" target="_blank">View Project</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="image-wrapper gradient-3">
-                    <span class="project-number">03</span>
-                    <!-- Add your image here -->
-                    <!-- <img src="project3.jpg" alt="Project 3" class="project-image"> -->
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project Gamma</h2>
-                    <p class="project-description">Next-generation platform built for scale and performance</p>
-                    <a href="https://github.com/yourusername/project3" class="view-project" target="_blank">View Project</a>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="image-wrapper gradient-4">
-                    <span class="project-number">04</span>
-                    <!-- Add your image here -->
-                    <!-- <img src="project4.jpg" alt="Project 4" class="project-image"> -->
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project Delta</h2>
-                    <p class="project-description">Elegant interface design meets powerful functionality</p>
-                    <a href="https://github.com/yourusername/project4" class="view-project" target="_blank">View Project</a>
-                </div>
-            </div>
+        <div class="projects-grid" id="projects-grid">
         </div>
     </div>
+
+    <script>
+        const projectsData = {
+            "projects": [
+                {
+                    "id": 1,
+                    "title": "Chrisidian",
+                    "description": "AI-Powered Markdown Notes",
+                    "image": "chrisidian.png",
+                    "url": "https://chraltro.github.io/chrisidian/"
+                },
+                {
+                    "id": 2,
+                    "title": "MD Presentation",
+                    "description": "Markdown Presentations",
+                    "image": "mdpresentation.png",
+                    "url": "https://chraltro.github.io/mdpresentation/"
+                },
+                {
+                    "id": 3,
+                    "title": "Stretch",
+                    "description": "Pomodoro Timer with Stretch Instructions",
+                    "image": "stretch.png",
+                    "url": "https://chraltro.github.io/Stretch/"
+                },
+                {
+                    "id": 4,
+                    "title": "Code Explainer",
+                    "description": "Explains Code with AI",
+                    "image": "code-explainer.png",
+                    "url": "https://chraltro.github.io/CodeExplainer/"
+                },
+                {
+                    "id": 5,
+                    "title": "Article Summarizer",
+                    "description": "Bulk Summarize Articles",
+                    "image": "article-summarizer.png",
+                    "url": "https://chraltro.github.io/article_summarizer/"
+                }
+            ]
+        };
+
+        function loadProjects() {
+            renderProjects(projectsData);
+        }
+        
+        function renderProjects(data) {
+            const projectsGrid = document.getElementById('projects-grid');
+            
+            data.projects.forEach((project, index) => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card';
+                projectCard.style.animationDelay = `${(index + 1) * 0.1}s`;
+                
+                projectCard.innerHTML = `
+                    <a href="${project.url}" target="_blank" class="image-link">
+                        <div class="image-wrapper">
+                            <span class="project-number">${project.id.toString().padStart(2, '0')}</span>
+                            <img src="${project.image}" alt="${project.title}" class="project-image">
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <h2 class="project-title">${project.title}</h2>
+                        <p class="project-description">${project.description}</p>
+                        <a href="${project.url}" class="view-project" target="_blank">View Project</a>
+                    </div>
+                `;
+                
+                projectsGrid.appendChild(projectCard);
+            });
+            
+            updateGridLayout(data.projects.length);
+        }
+        
+        function updateGridLayout(projectCount) {
+            const style = document.createElement('style');
+            
+            if (projectCount <= 3) {
+                style.textContent = `
+                    .projects-grid {
+                        grid-template-columns: repeat(${projectCount}, 1fr) !important;
+                    }
+                    .project-card:nth-child(n) {
+                        grid-column: unset !important;
+                    }
+                `;
+            } else if (projectCount <= 6) {
+                const firstRowCount = Math.ceil(projectCount / 2);
+                const secondRowCount = projectCount - firstRowCount;
+                
+                style.textContent = `
+                    .projects-grid {
+                        grid-template-columns: repeat(6, 1fr) !important;
+                    }
+                    .project-card:nth-child(n) {
+                        grid-column: unset !important;
+                    }
+                `;
+                
+                for (let i = 1; i <= firstRowCount; i++) {
+                    const startCol = (i - 1) * (6 / firstRowCount) + 1;
+                    const endCol = i * (6 / firstRowCount) + 1;
+                    style.textContent += `
+                        .project-card:nth-child(${i}) {
+                            grid-column: ${Math.round(startCol)} / ${Math.round(endCol)} !important;
+                        }
+                    `;
+                }
+                
+                const offset = (6 - secondRowCount * (6 / firstRowCount)) / 2;
+                for (let i = 1; i <= secondRowCount; i++) {
+                    const childIndex = firstRowCount + i;
+                    const startCol = offset + (i - 1) * (6 / firstRowCount) + 1;
+                    const endCol = offset + i * (6 / firstRowCount) + 1;
+                    style.textContent += `
+                        .project-card:nth-child(${childIndex}) {
+                            grid-column: ${Math.round(startCol)} / ${Math.round(endCol)} !important;
+                        }
+                    `;
+                }
+            } else {
+                style.textContent = `
+                    .projects-grid {
+                        grid-template-columns: repeat(3, 1fr) !important;
+                    }
+                    .project-card:nth-child(n) {
+                        grid-column: unset !important;
+                    }
+                `;
+            }
+            
+            document.head.appendChild(style);
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadProjects);
+    </script>
 </body>
 </html>

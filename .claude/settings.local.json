@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(del \"C:\\gits\\python_tests\\wayfinder\\projects.json\")"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}
