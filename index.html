@@ -330,7 +330,7 @@
                     "title": "Code Explainer",
                     "description": "Explains Code with AI",
                     "image": "code-explainer.png",
-                    "url": "https://chraltro.github.io/CodeExplainer/"
+                    "url": "https://chraltro.github.io/ai-code-explainer/"
                 },
                 {
                     "id": 5,
@@ -379,11 +379,13 @@
             
             if (projectCount <= 3) {
                 style.textContent = `
-                    .projects-grid {
-                        grid-template-columns: repeat(${projectCount}, 1fr) !important;
-                    }
-                    .project-card:nth-child(n) {
-                        grid-column: unset !important;
+                    @media (min-width: 769px) {
+                        .projects-grid {
+                            grid-template-columns: repeat(${projectCount}, 1fr);
+                        }
+                        .project-card:nth-child(n) {
+                            grid-column: unset;
+                        }
                     }
                 `;
             } else if (projectCount <= 6) {
@@ -391,12 +393,13 @@
                 const secondRowCount = projectCount - firstRowCount;
                 
                 style.textContent = `
-                    .projects-grid {
-                        grid-template-columns: repeat(6, 1fr) !important;
-                    }
-                    .project-card:nth-child(n) {
-                        grid-column: unset !important;
-                    }
+                    @media (min-width: 769px) {
+                        .projects-grid {
+                            grid-template-columns: repeat(6, 1fr);
+                        }
+                        .project-card:nth-child(n) {
+                            grid-column: unset;
+                        }
                 `;
                 
                 for (let i = 1; i <= firstRowCount; i++) {
@@ -404,7 +407,7 @@
                     const endCol = i * (6 / firstRowCount) + 1;
                     style.textContent += `
                         .project-card:nth-child(${i}) {
-                            grid-column: ${Math.round(startCol)} / ${Math.round(endCol)} !important;
+                            grid-column: ${Math.round(startCol)} / ${Math.round(endCol)};
                         }
                     `;
                 }
@@ -416,17 +419,23 @@
                     const endCol = offset + i * (6 / firstRowCount) + 1;
                     style.textContent += `
                         .project-card:nth-child(${childIndex}) {
-                            grid-column: ${Math.round(startCol)} / ${Math.round(endCol)} !important;
+                            grid-column: ${Math.round(startCol)} / ${Math.round(endCol)};
                         }
                     `;
                 }
+                
+                style.textContent += `
+                    }
+                `;
             } else {
                 style.textContent = `
-                    .projects-grid {
-                        grid-template-columns: repeat(3, 1fr) !important;
-                    }
-                    .project-card:nth-child(n) {
-                        grid-column: unset !important;
+                    @media (min-width: 769px) {
+                        .projects-grid {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                        .project-card:nth-child(n) {
+                            grid-column: unset;
+                        }
                     }
                 `;
             }
