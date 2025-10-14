@@ -10,6 +10,7 @@
     <meta property="og:type" content="website">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -59,11 +60,12 @@
         h1 {
             text-align: center;
             font-size: 1.8rem;
-            font-weight: 300;
+            font-weight: 600;
             letter-spacing: 0.1em;
             margin: 0;
             padding: 2rem 0;
             color: #fff;
+            font-family: 'Cinzel', serif;
             position: fixed;
             top: 0;
             left: 0;
@@ -195,6 +197,23 @@
             transform: scale(1);
         }
 
+        .project-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 35%;
+            height: auto;
+            z-index: 2;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .project-card:hover .project-logo {
+            transform: translate(-50%, -50%) scale(1.1);
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+        }
+
         .project-number {
             position: absolute;
             top: 1rem;
@@ -233,7 +252,7 @@
         }
 
         .project-card:hover .project-title {
-            color: #a78bfa;
+            color: #d4a373;
         }
 
         .project-description {
@@ -265,13 +284,13 @@
         .project-card:hover .view-project {
             opacity: 1;
             transform: translateY(0);
-            border-color: #a78bfa;
-            background: rgba(167, 139, 250, 0.1);
+            border-color: #d4a373;
+            background: rgba(212, 163, 115, 0.1);
         }
 
         .view-project:hover {
-            background: #a78bfa;
-            border-color: #a78bfa;
+            background: #d4a373;
+            border-color: #d4a373;
             transform: scale(1.05);
         }
 
@@ -309,6 +328,7 @@
                     "title": "Chrisidian",
                     "description": "AI-Powered Markdown Notes",
                     "image": "chrisidian.png",
+                    "logo": "chrisidian_logo.svg",
                     "url": "https://chraltro.github.io/chrisidian/"
                 },
                 {
@@ -327,10 +347,11 @@
                 },
                 {
                     "id": 4,
-                    "title": "Code Explainer",
-                    "description": "Explains Code with AI",
+                    "title": "ANSUZ",
+                    "description": "Code Decoded by AI",
                     "image": "code-explainer.png",
-                    "url": "https://chraltro.github.io/ai-code-explainer/"
+                    "logo": "ansuz_logo.svg",
+                    "url": "https://chraltro.github.io/ansuz/"
                 },
                 {
                     "id": 5,
@@ -338,6 +359,14 @@
                     "description": "Bulk Summarize Articles",
                     "image": "article-summarizer.png",
                     "url": "https://chraltro.github.io/article_summarizer/"
+                },
+                {
+                    "id": 6,
+                    "title": "SAGA",
+                    "description": "Tales Retold by AI - Norse Mythology Book Summarizer",
+                    "image": "saga.png",
+                    "logo": "saga_logo.png",
+                    "url": "https://chraltro.github.io/saga/"
                 }
             ]
         };
@@ -359,10 +388,11 @@
                         <div class="image-wrapper">
                             <span class="project-number">${project.id.toString().padStart(2, '0')}</span>
                             <img src="${project.image}" alt="${project.title}" class="project-image">
+                            ${project.logo ? `<img src="${project.logo}" alt="${project.title} Logo" class="project-logo">` : ''}
                         </div>
                     </a>
                     <div class="project-info">
-                        <h2 class="project-title">${project.title}</h2>
+                        <h2 class="project-title" style="font-family: 'Cinzel', serif; font-weight:600; letter-spacing:0.03em;">${project.title}</h2>
                         <p class="project-description">${project.description}</p>
                         <a href="${project.url}" class="view-project" target="_blank">View Project</a>
                     </div>
