@@ -219,9 +219,9 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
-            color: #fff;
+            background: transparent;
+            border: 1px solid var(--accent, #d4a373);
+            color: var(--accent, #d4a373);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -229,12 +229,15 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.02em;
             z-index: 3;
             transition: all 0.3s ease;
         }
 
         .project-card:hover .project-number {
-            background: rgba(255,255,255,0.2);
+            background: var(--accent, #d4a373);
+            color: #000;
             transform: rotate(90deg);
         }
 
@@ -253,7 +256,7 @@
         }
 
         .project-card:hover .project-title {
-            color: #d4a373;
+            color: var(--accent, #d4a373);
         }
 
         .project-description {
@@ -285,13 +288,13 @@
         .project-card:hover .view-project {
             opacity: 1;
             transform: translateY(0);
-            border-color: #d4a373;
-            background: rgba(212, 163, 115, 0.1);
+            border-color: var(--accent, #d4a373);
+            background: transparent;
         }
 
         .view-project:hover {
-            background: #d4a373;
-            border-color: #d4a373;
+            background: var(--accent, #d4a373);
+            border-color: var(--accent, #d4a373);
             transform: scale(1.05);
         }
 
@@ -327,50 +330,56 @@
                 {
                     "id": 1,
                     "title": "Munin",
-                    "description": "AI-Powered Markdown Notes",
-                    "image": "chrisidian.png",
+                    "description": "Memory Raven",
+                    "image": "munin.png",
                     "logo": "munin_logo.svg",
-                    "url": "https://chraltro.github.io/munin/"
+                    "url": "https://chraltro.github.io/munin/",
+                    "color": "#E63946"
                 },
                 {
                     "id": 2,
                     "title": "Vedr",
-                    "description": "Swift Presentations, Flowing Like the Wind",
-                    "image": "mdpresentation.png",
+                    "description": "Windborne Slides",
+                    "image": "vedr.png",
                     "logo": "vedr_logo.svg",
-                    "url": "https://chraltro.github.io/vedr/"
+                    "url": "https://chraltro.github.io/vedr/",
+                    "color": "#7DCFFF"
                 },
                 {
                     "id": 3,
                     "title": "Hvila",
-                    "description": "Rest & Respite - Pomodoro Timer with Stretch Breaks",
-                    "image": "stretch.png",
+                    "description": "Restful Pomodoro",
+                    "image": "hvila.png",
                     "logo": "hvila_logo.svg",
-                    "url": "https://chraltro.github.io/hvila/"
+                    "url": "https://chraltro.github.io/hvila/",
+                    "color": "#06FFA5"
                 },
                 {
                     "id": 4,
                     "title": "Ansuz",
-                    "description": "Code Decoded by AI",
-                    "image": "code-explainer.png",
+                    "description": "Runic Code Insight",
+                    "image": "ansuz.png",
                     "logo": "ansuz_logo.svg",
-                    "url": "https://chraltro.github.io/ansuz/"
+                    "url": "https://chraltro.github.io/ansuz/",
+                    "color": "#00B4D8"
                 },
                 {
                     "id": 5,
                     "title": "Glosa",
-                    "description": "Illuminate Articles - Bulk Summarize with AI",
-                    "image": "article-summarizer.png",
+                    "description": "Bronze Summaries",
+                    "image": "glosa.png",
                     "logo": "glosa_logo.svg",
-                    "url": "https://chraltro.github.io/glosa/"
+                    "url": "https://chraltro.github.io/glosa/",
+                    "color": "#EA822C"
                 },
                 {
                     "id": 6,
                     "title": "Saga",
-                    "description": "Tales Retold by AI - Book Summarizer",
+                    "description": "Autumn Tales",
                     "image": "saga.png",
                     "logo": "saga_logo.svg",
-                    "url": "https://chraltro.github.io/saga/"
+                    "url": "https://chraltro.github.io/saga/",
+                    "color": "#FF8C42"
                 }
             ]
         };
@@ -386,6 +395,7 @@
                 const projectCard = document.createElement('div');
                 projectCard.className = 'project-card';
                 projectCard.style.animationDelay = `${(index + 1) * 0.1}s`;
+                if (project.color) projectCard.style.setProperty('--accent', project.color);
                 
                 projectCard.innerHTML = `
                     <a href="${project.url}" target="_blank" class="image-link">
