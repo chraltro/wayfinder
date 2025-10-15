@@ -9,7 +9,7 @@
     <meta property="og:description" content="Portfolio of ChrAltro's GitHub projects and web applications">
     <meta property="og:image" content="https://chraltro.github.io/wayfinder/wayfinder_og.png">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" href="ansuz_logo.svg">
+    <link rel="icon" type="image/svg+xml" href="wayfinder_logo.svg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&family=Noto+Sans+Runic&display=swap');
         * {
@@ -58,15 +58,7 @@
             margin: 0 auto;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            margin: 0;
-            padding: 2rem 0;
-            color: #fff;
-            font-family: 'Cinzel', serif;
+        header {
             position: fixed;
             top: 0;
             left: 0;
@@ -75,6 +67,34 @@
             background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(10px);
             animation: fadeIn 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        header:hover .logo {
+            opacity: 1;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            margin: 0;
+            color: #999;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
         }
 
 
@@ -299,9 +319,17 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                padding: 0.75rem 0;
+            }
+
             h1 {
-                font-size: 1.5rem !important;
-                padding: 1rem 0 !important;
+                font-size: 0.75rem;
+            }
+
+            .logo {
+                width: 24px;
+                height: 24px;
             }
             
             .projects-grid {
@@ -317,9 +345,12 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
+        <img src="wayfinder_logo.svg" alt="Wayfinder" class="logo">
         <h1>ChrAltro GitHub Projects</h1>
-        
+    </header>
+
+    <div class="container">
         <div class="projects-grid" id="projects-grid">
         </div>
     </div>
@@ -330,7 +361,7 @@
                 {
                     "id": 1,
                     "title": "Munin",
-                    "description": "Memory Raven",
+                    "description": "Knowledge Base Keeper",
                     "image": "munin.png",
                     "logo": "munin_logo.svg",
                     "url": "https://chraltro.github.io/munin/",
@@ -339,7 +370,7 @@
                 {
                     "id": 2,
                     "title": "Vedr",
-                    "description": "Windborne Slides",
+                    "description": "Presentation Builder",
                     "image": "vedr.png",
                     "logo": "vedr_logo.svg",
                     "url": "https://chraltro.github.io/vedr/",
@@ -348,7 +379,7 @@
                 {
                     "id": 3,
                     "title": "Hvila",
-                    "description": "Restful Pomodoro",
+                    "description": "Stretch and Rest Timer",
                     "image": "hvila.png",
                     "logo": "hvila_logo.svg",
                     "url": "https://chraltro.github.io/hvila/",
@@ -357,7 +388,7 @@
                 {
                     "id": 4,
                     "title": "Ansuz",
-                    "description": "Runic Code Insight",
+                    "description": "Code Explainer",
                     "image": "ansuz.png",
                     "logo": "ansuz_logo.svg",
                     "url": "https://chraltro.github.io/ansuz/",
@@ -366,7 +397,7 @@
                 {
                     "id": 5,
                     "title": "Glosa",
-                    "description": "Bronze Summaries",
+                    "description": "Article Summarizer",
                     "image": "glosa.png",
                     "logo": "glosa_logo.svg",
                     "url": "https://chraltro.github.io/glosa/",
@@ -375,7 +406,7 @@
                 {
                     "id": 6,
                     "title": "Saga",
-                    "description": "Autumn Tales",
+                    "description": "Book Chapter Summarizer",
                     "image": "saga.png",
                     "logo": "saga_logo.svg",
                     "url": "https://chraltro.github.io/saga/",
