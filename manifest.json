@@ -1,0 +1,61 @@
+{
+  "name": "Wayfinder - ChrAltro GitHub Projects",
+  "short_name": "Wayfinder",
+  "description": "Portfolio of ChrAltro's GitHub projects and web applications",
+  "start_url": "/wayfinder/",
+  "scope": "/wayfinder/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#7DCFFF",
+  "background_color": "#0b0f14",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "wayfinder_og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Munin - Knowledge Base Keeper",
+      "short_name": "Munin",
+      "description": "AI-Powered notes",
+      "url": "https://chraltro.github.io/munin/",
+      "icons": [
+        {
+          "src": "munin_logo.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Ansuz - Code Explainer",
+      "short_name": "Ansuz",
+      "description": "Explain any code with AI",
+      "url": "https://chraltro.github.io/ansuz/",
+      "icons": [
+        {
+          "src": "ansuz_logo.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}
